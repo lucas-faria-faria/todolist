@@ -1,0 +1,75 @@
+<ion-header>
+  
+    <ion-navbar>
+      <ion-title>Tópicos Especiais em Sistemas de Informação - Projeto 1 (Atividade aberta 5)</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content padding>
+
+<div padding>
+  <ion-segment [(ngModel)]="aba">
+    <ion-segment-button value="Quem somos">
+      Quem somos
+    </ion-segment-button>
+    <ion-segment-button value="Integrantes">
+      Integrantes
+    </ion-segment-button>
+  </ion-segment>
+</div>
+
+<div [ngSwitch]="aba">
+  <ion-list *ngSwitchCase="'Integrantes'">
+      <ion-item>
+          <ion-thumbnail item-start>
+            <img src="assets/imgs/ana.jpg">
+          </ion-thumbnail>
+          <h2>Ana Clara Bispo</h2>
+            <p><a href="https://www.linkedin.com/in/anaclarabispo/" target="_new"><ion-icon name="logo-linkedin"></ion-icon></a></p>      
+        </ion-item>
+    
+        <ion-item>
+          <ion-thumbnail item-start>
+            <img src="assets/imgs/david.jpg">
+          </ion-thumbnail>
+          <h2>David Fernandes</h2>
+            <p><a href="https://www.linkedin.com/in/dfcamposs/" target="_new"><ion-icon name="logo-linkedin"></ion-icon></a></p>      
+        </ion-item>
+    
+        <ion-item>
+          <ion-thumbnail item-start>
+            <img src="assets/imgs/gui.jpg">
+          </ion-thumbnail>
+          <h2>Guilherme Braga</h2>
+            <p><a href="https://www.linkedin.com/in/guihbraga/" target="_new"><ion-icon name="logo-linkedin"></ion-icon></a></p>      
+        </ion-item>
+
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="assets/imgs/lucas.jpg">
+      </ion-thumbnail>
+      <h2>Lucas Faria</h2>
+        <p><a href="https://www.linkedin.com/in/lucasfariafaria/" target="_new"><ion-icon name="logo-linkedin"></ion-icon></a></p>      
+    </ion-item>
+
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="assets/imgs/paula.jpg">
+      </ion-thumbnail>
+      <h2>Paula Magalhães</h2>
+        <p><a href="https://www.linkedin.com/in/paula-magalh%C3%A3es-alves-73a51174/" target="_new"><ion-icon name="logo-linkedin"></ion-icon></a></p>      
+    </ion-item>
+    </ion-list>
+   
+    <ion-list *ngSwitchCase="'Quem somos'">
+      <hr>
+      <p>O objetivo desta atividade é fazer com quem o grupo experimente a construção de novas páginas e novos recursos em uma aplicação híbrida.</p>
+      <p>Para isso, alteramos a aplicação de gestão de tarefas, criada como exemplo, acrescentando a ela:</p>
+          
+      <p>->Uma nova página Home, que exibe a descrição deste trabalho e uma outra aba com informações dos integrantes do grupo e seus contatos;</p>
+      <p>->Uma nova funcionalidade, por meio de um componente Ionic "Home".</p>
+    </ion-list>
+</div>
+</ion-content>

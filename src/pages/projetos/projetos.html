@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Projetos</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <button ion-item *ngFor="let p of projetos" (click)="touchProjeto(p.codigo)">
+        {{ p.nome }}
+    </button>
+    <div class="mais">
+      <button ion-button (click)="addProjeto()">
+        <ion-icon name="add">
+        </ion-icon>
+      </button>
+    </div>
+  </ion-list>
+</ion-content>

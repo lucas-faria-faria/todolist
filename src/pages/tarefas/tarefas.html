@@ -1,0 +1,53 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle icon-only>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Tarefas</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-menu [content]="menucontent">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Filtros</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item-group>
+            <button ion-item (click)="clearFiltros()">Todas</button>
+            <button ion-item (click)="filterDias(0)">Até hoje</button>
+            <button ion-item (click)="filterDias(1)">Até amanhã</button>
+            <button ion-item (click)="filterDias(7)">Até a próxima semana</button>
+        </ion-item-group>
+        <ion-item-group>
+            <ion-item-divider class="light">POR PROJETOS</ion-item-divider>
+            <button ion-item *ngFor="let p of projetos" (click)="filterProjeto(p.codigo)">{{ p.nome }}</button>
+        </ion-item-group>
+      </ion-list>
+    </ion-content>
+</ion-menu>
+  
+<ion-nav id="nav" #menucontent [root]="rootPage"></ion-nav>
+
+
+<ion-content padding>
+  <ion-list>
+    <button ion-item *ngFor="let t of tarefas | filtro: filtroTarefas" (click)="touchTarefa(t.codigo)">
+      <h2>{{t.descricao | uppercase}}</h2>
+      <h3>Projeto: {{nomeProjeto(t.projeto)}}</h3>
+      <p>{{t.data | date:'dd/MM/yyyy'}}</p>
+      <ion-badge item-right [class.alta]="t.prioridade==1" [class.media]="t.prioridade==2" [class.baixa]="t.prioridade==3">
+        {{t.prioridade}}
+      </ion-badge>
+    </button>
+  </ion-list>
+  <div class="mais">
+    <button ion-button round (click)="addTarefa()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </div>
+</ion-content>
