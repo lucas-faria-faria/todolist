@@ -22,4 +22,7 @@ Then, to run it, cd into `your_directory` and run:
 $ ionic serve 
 ```
 
+End
+```
+
 
